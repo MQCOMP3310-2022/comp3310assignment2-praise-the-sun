@@ -86,7 +86,7 @@ public class Grid implements Iterable<Cell>{
             
             //is the row full? If so, let's compare!
             if( activeColumn == cells[activeRow].length -1 && 
-                !cells[activeRow][activeColumn].getStoredCharacter().equals(" ")){
+                !(" ".equals(cells[activeRow][activeColumn].getStoredCharacter()))){
                 
                 if(checkActiveRowAgainstWord()){
                     //success!
@@ -120,7 +120,7 @@ public class Grid implements Iterable<Cell>{
 
     void keyPressedLetter(char letter){
         if(!gameFinished){
-            System.out.println("grid keypress received letter: " + letter);
+            //System.out.println("grid keypress received letter: " + letter);
             cells[activeRow][activeColumn].setCharacter(letter, 1);
             if(activeColumn < cells[activeRow].length -1){
                 //not last character

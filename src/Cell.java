@@ -40,35 +40,32 @@ public class Cell extends Rectangle{
         //cell state 2 is letter entered, yellow background
         //cell state 3 is letter entered, green background
         switch(cellState){
+
+            //removed redundant code
             case 1:
-                displayCharacter = letter;
-                backbgroundColor = Color.DARK_GRAY;
-                textColor = Color.WHITE;
-                isEmpty = false;
+
+                cellStateFix(letter, Color.DARK_GRAY, Color.WHITE, false);
+                
                 break;
             case 2:
-                displayCharacter = letter;
-                backbgroundColor = Color.YELLOW;
-                textColor = Color.BLACK;
-                isEmpty = false;
+
+                cellStateFix(letter, Color.YELLOW, Color.BLACK, false);
+                
                 break;
             case 3:
-                displayCharacter = letter;
-                backbgroundColor = Color.GREEN;
-                textColor = Color.BLACK;
-                isEmpty = false;
+
+                cellStateFix(letter, Color.GREEN, Color.BLACK, false);
+                
                 break; 
             case 4:
-                displayCharacter = letter;
-                backbgroundColor = Color.RED;
-                textColor = Color.WHITE;
-                isEmpty = false;
+
+                cellStateFix(letter, Color.RED, Color.WHITE, false);
+                
                 break; 
             default:
-                displayCharacter = ' ';
-                backbgroundColor = Color.DARK_GRAY;
-                textColor = Color.WHITE;
-                isEmpty = true;
+
+                cellStateFix(' ', Color.DARK_GRAY, Color.WHITE, true);
+                
         }
     }
 
@@ -77,6 +74,9 @@ public class Cell extends Rectangle{
     }
 
     void paint(Graphics g){
+
+        //Remove complex boolean statement
+
         if(isActive){
             g.setColor(Color.LIGHT_GRAY);
         } else {
@@ -124,8 +124,13 @@ public class Cell extends Rectangle{
         return "" + displayCharacter;
     }
 
-    public String toString(){
-        return Integer.toString(col) + Integer.toString(row) + ":'" + displayCharacter + "'";
+        //Removed all toString() function
+
+    public void cellStateFix(char x, Color y, Color z, boolean a){
+                displayCharacter = x;
+                backbgroundColor = y;
+                textColor = z;
+                isEmpty = a;
+
     }
-    //Remove all toString() function
 }
