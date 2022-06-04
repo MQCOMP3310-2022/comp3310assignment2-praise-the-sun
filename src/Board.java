@@ -7,13 +7,15 @@ import java.io.IOException;
 // import java.sql.Connection;
 // import java.sql.DriverManager;
 // import java.sql.SQLException;
-
+import java.util.Random;
 
 public class Board {
     Grid grid;
     SQLiteConnectionManager wordleDatabaseConnection;
     int secretWordIndex;
     int numberOfWords;
+    
+
 
     public Board(){
         wordleDatabaseConnection = new SQLiteConnectionManager("words.db");
@@ -83,8 +85,9 @@ public class Board {
         }
         if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
             grid.keyPressedEscape();
-            
-            secretWordIndex = ( secretWordIndex + 1 ) % numberOfWords;
+            Random rnd = new Random();
+            int random = rnd.nextInt(1000);
+            secretWordIndex = ( secretWordIndex + random ) % numberOfWords;
             String theWord = wordleDatabaseConnection.getWordAtIndex(secretWordIndex);
             grid.setWord(theWord);
 
