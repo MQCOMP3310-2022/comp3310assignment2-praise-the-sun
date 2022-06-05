@@ -60,7 +60,9 @@ public class Board {
 
         grid = new Grid(6,4, wordleDatabaseConnection);
         secretWordIndex = 2;
-        String theWord = wordleDatabaseConnection.getWordAtIndex(2);
+        Random random = new Random();
+        int startIndex = random.nextInt((numberOfWords-1)-secretWordIndex+1)+secretWordIndex;
+        String theWord = wordleDatabaseConnection.getWordAtIndex(startIndex);
         grid.setWord(theWord);
     }
 
