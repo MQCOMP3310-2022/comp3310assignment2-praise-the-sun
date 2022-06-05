@@ -120,6 +120,7 @@ public class Grid implements Iterable<Cell>{
 
     void keyPressedLetter(char letter){
         if(!gameFinished){
+            letter = Character.toLowerCase(letter);
             //System.out.println("grid keypress received letter: " + letter);
             cells[activeRow][activeColumn].setCharacter(letter, 1);
             if(activeColumn < cells[activeRow].length -1){
